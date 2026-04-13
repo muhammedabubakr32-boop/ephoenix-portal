@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HydraHer – Natural Energy for Women</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1e;
+    --deep: #0d1a0f;
+    --sage: #4a7c59;
+    --mint-fresh: #7ecba1;
+    --gold: #c9a96e;
+    --gold-light: #e8c98a;
+    --cream: #f5f0e8;
+    --warm-white: #faf7f2;
+    --text-main: #1a1a1a;
+    --text-muted: #5a5a5a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(13,26,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 600; letter-spacing: 0.08em;
+    color: var(--gold-light); text-decoration: none;
+  }
+  .nav-logo span { font-style: italic; color: var(--mint-fresh); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(245,240,232,0.75); text-decoration: none; transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: transparent; border: 1px solid var(--gold);
+    color: var(--gold-light); padding: 0.55rem 1.4rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    transition: all 0.3s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--deep); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: var(--deep);
+    position: relative; overflow: hidden;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+  }
+  .hero-blob-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #4a7c59, #1a2e1e);
+    top: -100px; right: -50px;
+    animation: drift1 8s ease-in-out infinite alternate;
+  }
+  .hero-blob-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, #c9a96e, #7ecba1);
+    bottom: -80px; left: 200px;
+    animation: drift2 10s ease-in-out infinite alternate;
+  }
+  @keyframes drift1 { from { transform: translate(0,0) scale(1); } to { transform: translate(30px,-30px) scale(1.1); } }
+  @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(-20px,20px); } }
+
+  .hero-content {
+    padding: 8rem 3rem 4rem 5rem;
+    position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--mint-fresh); font-weight: 500;
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.6rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 32px; height: 1px; background: var(--mint-fresh);
+  }
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--cream); margin-bottom: 0.4rem;
+  }
+  .hero-h1 em {
+    font-style: italic; color: var(--gold-light);
+    font-weight: 400;
+  }
+  .hero-sub {
+    font-size: 1rem; line-height: 1.7; color: rgba(245,240,232,0.7);
+    max-width: 460px; margin: 1.6rem 0 2.4rem;
+    font-weight: 300;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--deep); border: none;
+    padding: 0.9rem 2.2rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 24px rgba(201,169,110,0.25);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,169,110,0.4); }
+  .btn-ghost {
+    background: transparent; border: none;
+    color: rgba(245,240,232,0.6); font-size: 0.82rem;
+    letter-spacing: 0.06em; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s;
+  }
+  .btn-ghost:hover { color: var(--cream); }
+  .guarantee-badge {
+    margin-top: 2rem; display: flex; align-items: center; gap: 0.7rem;
+    font-size: 0.75rem; color: rgba(245,240,232,0.5); letter-spacing: 0.04em;
+  }
+  .guarantee-badge svg { flex-shrink: 0; }
+
+  .hero-visual {
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 2; padding: 8rem 4rem 4rem 2rem;
+  }
+  .can-wrap {
+    position: relative;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-18px); }
+  }
+  .can-svg-container { position: relative; }
+  .hero-badges {
+    position: absolute;
+    display: flex; flex-direction: column; gap: 0.8rem;
+    right: -60px; top: 50%; transform: translateY(-50%);
+  }
+  .hero-badge {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,169,110,0.25);
+    backdrop-filter: blur(8px);
+    padding: 0.6rem 1rem; min-width: 130px;
+    font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .hero-badge strong { display: block; font-size: 0.85rem; margin-bottom: 0.1rem; }
+
+  /* ─── BENEFITS STRIP ─── */
+  .benefits-strip {
+    background: var(--forest);
+    padding: 2rem 4rem;
+    display: flex; gap: 3rem; overflow-x: auto;
+    border-top: 1px solid rgba(201,169,110,0.15);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+    scrollbar-width: none;
+  }
+  .benefits-strip::-webkit-scrollbar { display: none; }
+  .benefit-item {
+    display: flex; align-items: center; gap: 0.8rem;
+    flex-shrink: 0; color: rgba(245,240,232,0.8);
+    font-size: 0.82rem; letter-spacing: 0.04em;
+  }
+  .benefit-icon { color: var(--mint-fresh); font-size: 1.1rem; }
+
+  /* ─── SECTION SHARED ─── */
+  .section-label {
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--sage); font-weight: 500;
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;
+  }
+  .section-label::before { content: ''; width: 24px; height: 1px; background: var(--sage); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+    font-weight: 300; line-height: 1.1; color: var(--forest);
+  }
+  .section-title em { font-style: italic; color: var(--sage); }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-section {
+    padding: 7rem 5rem;
+    background: var(--warm-white);
+    position: relative; overflow: hidden;
+  }
+  .how-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: center; margin-top: 4rem; }
+  .how-visual {
+    background: linear-gradient(160deg, var(--forest) 0%, var(--deep) 100%);
+    padding: 3.5rem 2.5rem; position: relative; overflow: hidden;
+  }
+  .how-visual::before {
+    content: 'HH'; position: absolute; right: -20px; bottom: -40px;
+    font-family: 'Cormorant Garamond', serif; font-size: 14rem;
+    font-weight: 700; color: rgba(74,124,89,0.12); line-height: 1;
+    pointer-events: none;
+  }
+  .ingredient-card {
+    display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.8rem;
+  }
+  .ingredient-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;
+    font-weight: 300; color: rgba(201,169,110,0.3); line-height: 1; min-width: 40px;
+  }
+  .ingredient-info {}
+  .ingredient-name {
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+    color: var(--gold-light); text-transform: uppercase; margin-bottom: 0.3rem;
+  }
+  .ingredient-desc { font-size: 0.82rem; line-height: 1.6; color: rgba(245,240,232,0.6); }
+  .timeline {
+    background: rgba(74,124,89,0.08); border-left: 2px solid var(--mint-fresh);
+    padding: 1.5rem 1.5rem 1.5rem 2rem; margin-top: 2rem;
+  }
+  .timeline-title { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mint-fresh); margin-bottom: 1rem; }
+  .timeline-item { display: flex; gap: 1rem; margin-bottom: 0.8rem; align-items: baseline; }
+  .timeline-day { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--gold); min-width: 80px; }
+  .timeline-text { font-size: 0.82rem; line-height: 1.5; color: var(--text-muted); }
+
+  .how-steps { display: flex; flex-direction: column; gap: 2rem; }
+  .how-step {
+    display: flex; gap: 1.5rem; padding: 1.8rem;
+    border: 1px solid rgba(74,124,89,0.15);
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .how-step:hover { border-color: var(--sage); transform: translateX(6px); }
+  .how-step-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 3rem;
+    font-weight: 600; color: rgba(74,124,89,0.2); line-height: 1; flex-shrink: 0;
+  }
+  .how-step-content {}
+  .how-step-title { font-size: 0.92rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--forest); letter-spacing: 0.04em; }
+  .how-step-desc { font-size: 0.82rem; line-height: 1.6; color: var(--text-muted); }
+
+  /* ─── FLAVORS ─── */
+  .flavors-section {
+    padding: 7rem 5rem;
+    background: var(--forest);
+    position: relative;
+  }
+  .flavors-section .section-label { color: var(--mint-fresh); }
+  .flavors-section .section-label::before { background: var(--mint-fresh); }
+  .flavors-section .section-title { color: var(--cream); }
+  .flavors-section .section-title em { color: var(--gold-light); }
+  .flavors-subtitle { font-size: 0.92rem; color: rgba(245,240,232,0.6); margin: 1rem 0 3.5rem; max-width: 540px; line-height: 1.7; }
+  .flavors-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.2rem;
+  }
+  .flavor-card {
+    position: relative; overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 2rem 1.4rem;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94), border-color 0.3s;
+    display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 380px;
+  }
+  .flavor-card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.2); }
+  .flavor-card::before {
+    content: ''; position: absolute; inset: 0; opacity: 0.08;
+    transition: opacity 0.3s;
+  }
+  .flavor-card:hover::before { opacity: 0.15; }
+  .flavor-card.berry::before { background: linear-gradient(135deg, #e74c8b, #9b59b6); }
+  .flavor-card.citrus::before { background: linear-gradient(135deg, #f39c12, #e67e22); }
+  .flavor-card.tropical::before { background: linear-gradient(135deg, #1abc9c, #16a085); }
+  .flavor-card.vanilla::before { background: linear-gradient(135deg, #d4a96a, #c9955c); }
+  .flavor-card.mint::before { background: linear-gradient(135deg, #2ecc71, #1abc9c); }
+
+  .flavor-emoji { font-size: 2.8rem; margin-bottom: 1.2rem; display: block; }
+  .flavor-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    font-weight: 600; color: var(--cream); margin-bottom: 0.4rem;
+  }
+  .flavor-subtitle { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mint-fresh); margin-bottom: 1rem; }
+  .flavor-desc { font-size: 0.78rem; line-height: 1.6; color: rgba(245,240,232,0.55); flex-grow: 1; margin-bottom: 1.2rem; }
+  .flavor-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+  .flavor-price {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+    font-weight: 600; color: var(--gold-light); line-height: 1;
+  }
+  .flavor-price span { font-size: 0.72rem; font-family: 'DM Sans', sans-serif; color: rgba(245,240,232,0.4); display: block; letter-spacing: 0.06em; }
+  .flavor-add {
+    background: transparent; border: 1px solid rgba(201,169,110,0.4);
+    color: var(--gold-light); padding: 0.5rem 1rem;
+    font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all 0.3s;
+  }
+  .flavor-add:hover { background: var(--gold); color: var(--deep); border-color: var(--gold); }
+  .popular-tag {
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--gold); color: var(--deep);
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.25rem 0.6rem; font-weight: 500;
+  }
+
+  /* ─── PRICING ─── */
+  .pricing-section {
+    padding: 7rem 5rem;
+    background: var(--warm-white);
+  }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+  .pricing-card {
+    border: 1px solid rgba(74,124,89,0.2);
+    padding: 2.5rem 2rem; position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,46,30,0.1); }
+  .pricing-card.featured {
+    background: var(--forest); border-color: var(--gold);
+    transform: scale(1.02);
+  }
+  .pricing-card.featured:hover { transform: scale(1.02) translateY(-6px); }
+  .pricing-tag {
+    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: var(--deep);
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.3rem 1.2rem; font-weight: 500; white-space: nowrap;
+  }
+  .pricing-plan { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.8rem; }
+  .pricing-card.featured .pricing-plan { color: var(--mint-fresh); }
+  .pricing-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 600; color: var(--forest); line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .pricing-card.featured .pricing-price { color: var(--cream); }
+  .pricing-range { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+  .pricing-card.featured .pricing-range { color: rgba(245,240,232,0.55); }
+  .pricing-per { font-size: 0.75rem; color: var(--sage); margin-bottom: 1.5rem; }
+  .pricing-card.featured .pricing-per { color: var(--mint-fresh); }
+  .pricing-save {
+    display: inline-block; background: rgba(126,203,161,0.15);
+    color: var(--sage); font-size: 0.72rem; letter-spacing: 0.08em;
+    padding: 0.25rem 0.7rem; margin-bottom: 1.5rem;
+  }
+  .pricing-card.featured .pricing-save { background: rgba(126,203,161,0.2); color: var(--mint-fresh); }
+  .pricing-features { list-style: none; margin-bottom: 2rem; }
+  .pricing-features li {
+    font-size: 0.82rem; padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(74,124,89,0.1);
+    color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;
+  }
+  .pricing-card.featured .pricing-features li { border-bottom-color: rgba(126,203,161,0.15); color: rgba(245,240,232,0.7); }
+  .pricing-features li::before { content: '✓'; color: var(--sage); font-size: 0.8rem; }
+  .pricing-card.featured .pricing-features li::before { color: var(--mint-fresh); }
+  .btn-pricing {
+    width: 100%; padding: 0.9rem; font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    border: 1px solid var(--sage); background: transparent; color: var(--forest);
+    transition: all 0.3s;
+  }
+  .btn-pricing:hover { background: var(--sage); color: var(--cream); }
+  .pricing-card.featured .btn-pricing {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-color: transparent; color: var(--deep);
+  }
+  .pricing-card.featured .btn-pricing:hover { opacity: 0.9; }
+  .pricing-sub {
+    text-align: center; margin-top: 2.5rem;
+    font-size: 0.82rem; color: var(--text-muted);
+    padding: 1.2rem; background: rgba(74,124,89,0.06);
+    border: 1px dashed rgba(74,124,89,0.25);
+  }
+  .pricing-sub strong { color: var(--sage); }
+
+  /* ─── REVIEWS ─── */
+  .reviews-section {
+    padding: 7rem 5rem;
+    background: linear-gradient(160deg, var(--deep) 0%, var(--forest) 100%);
+    position: relative; overflow: hidden;
+  }
+  .reviews-section::before {
+    content: '❝'; position: absolute; top: 2rem; left: 3rem;
+    font-family: 'Cormorant Garamond', serif; font-size: 20rem; font-weight: 700;
+    color: rgba(201,169,110,0.04); line-height: 1; pointer-events: none;
+  }
+  .reviews-section .section-label { color: var(--mint-fresh); }
+  .reviews-section .section-label::before { background: var(--mint-fresh); }
+  .reviews-section .section-title { color: var(--cream); }
+  .reviews-section .section-title em { color: var(--gold-light); }
+  .stars-global {
+    display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0 3rem;
+    font-size: 0.82rem; color: rgba(245,240,232,0.5);
+  }
+  .stars { color: var(--gold); letter-spacing: 0.1rem; font-size: 1.1rem; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 2rem; position: relative;
+  }
+  .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1.2rem; }
+  .review-text {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+    font-style: italic; line-height: 1.65; color: rgba(245,240,232,0.85); margin-bottom: 1.5rem;
+  }
+  .reviewer-name { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-light); }
+  .reviewer-flavor { font-size: 0.72rem; color: rgba(126,203,161,0.7); margin-top: 0.2rem; }
+
+  /* ─── FAQ ─── */
+  .faq-section {
+    padding: 7rem 5rem;
+    background: var(--warm-white);
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; align-items: start;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(74,124,89,0.15); padding: 1.5rem 0; cursor: pointer;
+  }
+  .faq-question {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.92rem; font-weight: 500; color: var(--forest);
+    letter-spacing: 0.02em;
+  }
+  .faq-toggle { color: var(--sage); font-size: 1.3rem; transition: transform 0.3s; }
+  .faq-answer {
+    font-size: 0.82rem; line-height: 1.7; color: var(--text-muted);
+    margin-top: 0.8rem; display: none;
+  }
+  .faq-item.open .faq-answer { display: block; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--deep);
+    padding: 4rem 5rem;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 3rem; }
+  .footer-brand .nav-logo { display: block; margin-bottom: 1rem; }
+  .footer-tagline { font-size: 0.82rem; line-height: 1.6; color: rgba(245,240,232,0.45); max-width: 260px; }
+  .footer-col-title { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.6rem; }
+  .footer-links a { font-size: 0.8rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.72rem; color: rgba(245,240,232,0.3); letter-spacing: 0.04em;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1200px) {
+    .flavors-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .hero-content { padding: 8rem 3rem 4rem; }
+  }
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .how-section, .pricing-section, .reviews-section { padding: 5rem 2rem; }
+    .flavors-section { padding: 5rem 2rem; }
+    .how-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card.featured { transform: none; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .faq-section { grid-template-columns: 1fr; padding: 5rem 2rem; }
+    .flavors-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    footer { padding: 3rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Hydra<span>Her</span></a>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#flavors">Flavors</a></li>
+    <li><a href="#pricing">Bundles</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <button class="nav-cta">Shop Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">For women. By nature.</p>
+    <h1 class="hero-h1">
+      Boost Your<br>Energy <em>Naturally</em><br>– Power Through<br>Every Workout
+    </h1>
+    <p class="hero-sub">A 100% natural, hormone-free supplement formulated to elevate energy, fight fatigue, and support women through menopause and beyond. Feel stronger, focused, and ready to move.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="document.getElementById('flavors').scrollIntoView({behavior:'smooth'})">Shop All Flavors</button>
+      <button class="btn-ghost" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        How it works
+      </button>
+    </div>
+    <div class="guarantee-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      30-Day Money-Back Guarantee &nbsp;·&nbsp; Free Discreet Shipping on Bundles
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="can-wrap">
+      <!-- Illustrated Can SVG -->
+      <svg width="220" height="400" viewBox="0 0 220 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="canGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#1a2e1e;stop-opacity:1"/>
+            <stop offset="40%" style="stop-color:#2d4a34;stop-opacity:1"/>
+            <stop offset="80%" style="stop-color:#1a2e1e;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#0d1a0f;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="canHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:rgba(255,255,255,0);stop-opacity:0"/>
+            <stop offset="30%" style="stop-color:rgba(255,255,255,0.08);stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:rgba(255,255,255,0.15);stop-opacity:1"/>
+            <stop offset="70%" style="stop-color:rgba(255,255,255,0.05);stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0"/>
+          </linearGradient>
+          <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3a5c40"/>
+            <stop offset="100%" style="stop-color:#1a2e1e"/>
+          </linearGradient>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#c9a96e"/>
+            <stop offset="50%" style="stop-color:#e8c98a"/>
+            <stop offset="100%" style="stop-color:#c9a96e"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Can body -->
+        <rect x="30" y="40" width="160" height="320" rx="16" fill="url(#canGrad)"/>
+        <!-- Shine -->
+        <rect x="30" y="40" width="160" height="320" rx="16" fill="url(#canHighlight)"/>
+        <!-- Top ellipse -->
+        <ellipse cx="110" cy="40" rx="80" ry="18" fill="url(#topGrad)"/>
+        <!-- Bottom ellipse -->
+        <ellipse cx="110" cy="360" rx="80" ry="18" fill="#0d1a0f"/>
+        <!-- Gold accent bands -->
+        <rect x="30" y="55" width="160" height="3" rx="1.5" fill="url(#goldGrad)" opacity="0.7"/>
+        <rect x="30" y="342" width="160" height="3" rx="1.5" fill="url(#goldGrad)" opacity="0.7"/>
+        <!-- Brand name -->
+        <text x="110" y="155" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="600" fill="#e8c98a" filter="url(#glow)">Hydra</text>
+        <text x="110" y="195" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="38" font-weight="300" font-style="italic" fill="#7ecba1">Her</text>
+        <!-- Decorative leaf motif -->
+        <g transform="translate(110,230)" opacity="0.6">
+          <ellipse cx="0" cy="-8" rx="8" ry="14" fill="none" stroke="#7ecba1" stroke-width="1" transform="rotate(-15)"/>
+          <ellipse cx="0" cy="-8" rx="8" ry="14" fill="none" stroke="#7ecba1" stroke-width="1" transform="rotate(15)"/>
+          <line x1="0" y1="5" x2="0" y2="-20" stroke="#7ecba1" stroke-width="0.8"/>
+        </g>
+        <!-- Tagline -->
+        <text x="110" y="275" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" letter-spacing="3" fill="rgba(245,240,232,0.45)">NATURAL ENERGY</text>
+        <text x="110" y="292" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9" letter-spacing="3" fill="rgba(245,240,232,0.45)">FOR WOMEN</text>
+        <!-- Tab top -->
+        <rect x="95" y="26" width="30" height="6" rx="3" fill="#3a5c40"/>
+        <rect x="103" y="22" width="14" height="8" rx="4" fill="#4a7c59"/>
+      </svg>
+      <div class="hero-badges">
+        <div class="hero-badge"><strong>100%</strong>Natural Formula</div>
+        <div class="hero-badge"><strong>0</strong>Harsh Stimulants</div>
+        <div class="hero-badge"><strong>7–14</strong>Days to Feel It</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS STRIP -->
+<div class="benefits-strip">
+  <div class="benefit-item"><span class="benefit-icon">⚡</span> Naturally boosts energy & endurance</div>
+  <div class="benefit-item"><span class="benefit-icon">🌿</span> Hormone-free clean formula</div>
+  <div class="benefit-item"><span class="benefit-icon">💚</span> Fights menopause fatigue</div>
+  <div class="benefit-item"><span class="benefit-icon">🧠</span> Supports focus without jitters</div>
+  <div class="benefit-item"><span class="benefit-icon">🌱</span> Vegan-friendly</div>
+  <div class="benefit-item"><span class="benefit-icon">🔥</span> B-vitamins + Maca Root + adaptogens</div>
+  <div class="benefit-item"><span class="benefit-icon">✨</span> Results in 7–14 days</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section fade-in" id="how">
+  <p class="section-label">The Science</p>
+  <h2 class="section-title">How <em>HydraHer</em><br>Powers Your Body</h2>
+  <div class="how-grid">
+    <div>
+      <div class="how-visual">
+        <div class="ingredient-card">
+          <div class="ingredient-num">01</div>
+          <div class="ingredient-info">
+            <div class="ingredient-name">B-Vitamins Complex</div>
+            <div class="ingredient-desc">Converts food into usable ATP energy for muscles during exercise – your cellular fuel system activated.</div>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-num">02</div>
+          <div class="ingredient-info">
+            <div class="ingredient-name">Maca Root</div>
+            <div class="ingredient-desc">Ancient adaptogenic root that supports natural vitality, hormonal balance, and sustained physical performance.</div>
+          </div>
+        </div>
+        <div class="ingredient-card">
+          <div class="ingredient-num">03</div>
+          <div class="ingredient-info">
+            <div class="ingredient-name">Adaptogens + Support Nutrients</div>
+            <div class="ingredient-desc">Reduce stress-related fatigue, promote sustained performance, and help your body adapt to physical demands.</div>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-title">Results Timeline</div>
+          <div class="timeline-item">
+            <div class="timeline-day">7–14d</div>
+            <div class="timeline-text">Initial energy lift & improved workout feel</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-day">4–8w</div>
+            <div class="timeline-text">Optimal endurance & lasting fatigue reduction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <div class="how-step-content">
+          <div class="how-step-title">Mix 1–2 Scoops</div>
+          <div class="how-step-desc">Add to water or your favourite smoothie. Start with 1 scoop to assess tolerance. The powder dissolves easily and tastes delicious in any of 5 flavors.</div>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <div class="how-step-content">
+          <div class="how-step-title">Take 20–30 Minutes Before Exercise</div>
+          <div class="how-step-desc">Allows B-vitamins and adaptogens to enter your system and prime your muscles for peak energy production during your workout.</div>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <div class="how-step-content">
+          <div class="how-step-title">Use Consistently Daily</div>
+          <div class="how-step-desc">Consistent daily use builds cumulative benefits. Most women notice improved energy and endurance within 7–14 days, with optimal results at 4–8 weeks.</div>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">4</div>
+        <div class="how-step-content">
+          <div class="how-step-title">Feel the Difference</div>
+          <div class="how-step-desc">Clean, sustained energy without jitters or crashes. More focused workouts, less fatigue, and a renewed sense of vitality that supports you through menopause and beyond.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLAVORS -->
+<section class="flavors-section fade-in" id="flavors">
+  <p class="section-label">5 Delicious Options</p>
+  <h2 class="section-title">Fuel Your Workouts<br>with <em>Great Taste</em></h2>
+  <p class="flavors-subtitle">Each 30-day pouch delivers a premium blend to support natural energy production, reduce fatigue, and enhance exercise performance.</p>
+  <div class="flavors-grid">
+
+    <div class="flavor-card berry">
+      <div>
+        <span class="flavor-emoji">🫐</span>
+        <div class="flavor-name">Berry Blast</div>
+        <div class="flavor-subtitle">Sweet & Powerful</div>
+        <div class="flavor-desc">Clean energy surge with improved endurance during cardio or strength. Fights mid-day fatigue so you stay powered through longer workouts.</div>
+      </div>
+      <div class="flavor-bottom">
+        <div class="flavor-price">$59 <span>per pouch / 30 days</span></div>
+        <button class="flavor-add">Add</button>
+      </div>
+    </div>
+
+    <div class="flavor-card citrus">
+      <div>
+        <span class="flavor-emoji">🍋</span>
+        <div class="flavor-name">Citrus Surge</div>
+        <div class="flavor-subtitle">Refreshing & Sharp</div>
+        <div class="flavor-desc">Enhances energy and mental focus during exercise. Supports oxygen utilisation and reduces tiredness from hormonal transitions.</div>
+      </div>
+      <div class="flavor-bottom">
+        <div class="flavor-price">$55 <span>per pouch / 30 days</span></div>
+        <button class="flavor-add">Add</button>
+      </div>
+    </div>
+
+    <div class="flavor-card tropical">
+      <div>
+        <span class="flavor-emoji">🌴</span>
+        <div class="flavor-name">Tropical Drive</div>
+        <div class="flavor-subtitle">Exotic & Sustaining</div>
+        <div class="flavor-desc">Boosts sustained energy for high-intensity sessions. Aids natural vitality and maintains motivation even on the most challenging days.</div>
+      </div>
+      <div class="flavor-bottom">
+        <div class="flavor-price">$62 <span>per pouch / 30 days</span></div>
+        <button class="flavor-add">Add</button>
+      </div>
+    </div>
+
+    <div class="flavor-card vanilla">
+      <div>
+        <span class="flavor-emoji">✨</span>
+        <div class="flavor-name">Vanilla Vitality</div>
+        <div class="flavor-subtitle">Gentle & Steady</div>
+        <div class="flavor-desc">Smooth, comforting ritual. Provides steady energy release and eases exercise-related fatigue without crashes. Perfect in warm drinks.</div>
+      </div>
+      <div class="popular-tag">Starter</div>
+      <div class="flavor-bottom">
+        <div class="flavor-price">$50 <span>per pouch / 30 days</span></div>
+        <button class="flavor-add">Add</button>
+      </div>
+    </div>
+
+    <div class="flavor-card mint">
+      <div>
+        <span class="flavor-emoji">🌿</span>
+        <div class="flavor-name">Mint Momentum</div>
+        <div class="flavor-subtitle">Cool & Focused</div>
+        <div class="flavor-desc">Sharpens focus with quick yet sustained energy. Improves breathing comfort during activity and helps you push through plateaus.</div>
+      </div>
+      <div class="flavor-bottom">
+        <div class="flavor-price">$57 <span>per pouch / 30 days</span></div>
+        <button class="flavor-add">Add</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section fade-in" id="pricing">
+  <p class="section-label">Bundles & Savings</p>
+  <h2 class="section-title">Choose Your <em>Journey</em></h2>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-plan">Single Pouch</div>
+      <div class="pricing-price">$50–62</div>
+      <div class="pricing-range">30-day supply</div>
+      <div class="pricing-per">per flavor</div>
+      <ul class="pricing-features">
+        <li>Your choice of any flavor</li>
+        <li>30-day supply</li>
+        <li>30-day money-back guarantee</li>
+        <li>Standard shipping</li>
+      </ul>
+      <button class="btn-pricing">Start Here</button>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-tag">⭐ Most Popular</div>
+      <div class="pricing-plan">3-Pouch Bundle</div>
+      <div class="pricing-price">$135–165</div>
+      <div class="pricing-range">90-day supply</div>
+      <div class="pricing-per">Save 25–30%</div>
+      <div class="pricing-save">✓ Free Discreet Shipping</div>
+      <ul class="pricing-features">
+        <li>Mix & match 3 flavors</li>
+        <li>90-day full supply</li>
+        <li>Free workout guide included</li>
+        <li>Free discreet shipping</li>
+        <li>30-day money-back guarantee</li>
+      </ul>
+      <button class="btn-pricing">Get Best Deal</button>
+    </div>
+    <div class="pricing-card">
+      <div class="pricing-plan">6-Pouch Bundle</div>
+      <div class="pricing-price">$240–290</div>
+      <div class="pricing-range">180-day supply</div>
+      <div class="pricing-per">Save up to 40%</div>
+      <div class="pricing-save">✓ Maximum Savings</div>
+      <ul class="pricing-features">
+        <li>Mix & match 6 flavors</li>
+        <li>6-month complete supply</li>
+        <li>Free shipping + extra bonuses</li>
+        <li>Priority customer support</li>
+        <li>30-day money-back guarantee</li>
+      </ul>
+      <button class="btn-pricing">Best Value</button>
+    </div>
+  </div>
+  <div class="pricing-sub">
+    💚 <strong>Subscribe & Save 10% more</strong> — flexible subscription, cancel anytime. All orders ship in discreet packaging.
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section fade-in" id="reviews">
+  <p class="section-label">Real Women, Real Results</p>
+  <h2 class="section-title">What They're<br><em>Saying</em></h2>
+  <div class="stars-global">
+    <span class="stars">★★★★★</span>
+    <strong style="color:var(--gold-light);">4.7/5</strong>
+    from thousands of active women
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Finally, clean energy that actually lasts through my workouts – no crash whatsoever. I look forward to my Berry Blast every morning now."</div>
+      <div class="reviewer-name">Sarah M.</div>
+      <div class="reviewer-flavor">Berry Blast · Verified Buyer</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <div class="review-text">"Helps me push harder at the gym even on tired menopause days. The flavors are honestly so good I'd drink it regardless. Love the Tropical Drive!"</div>
+      <div class="reviewer-name">Linda K.</div>
+      <div class="reviewer-flavor">Tropical Drive · Verified Buyer</div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★☆</div>
+      <div class="review-text">"HydraHer gave me my drive back in the gym. After two weeks I noticed I was finishing workouts I used to bail on halfway. Mint Momentum is perfection."</div>
+      <div class="reviewer-name">Jessica R.</div>
+      <div class="reviewer-flavor">Mint Momentum · Verified Buyer</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section fade-in" id="faq">
+  <div>
+    <p class="section-label">Questions</p>
+    <h2 class="section-title">Got<br><em>Questions?</em></h2>
+    <p style="font-size:0.85rem;color:var(--text-muted);margin-top:1rem;line-height:1.7;max-width:280px;">We're here to help you make the best choice for your energy and wellness journey.</p>
+  </div>
+  <div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">Is HydraHer safe? <span class="faq-toggle">+</span></div>
+      <div class="faq-answer">Yes — 100% natural, vegan, and completely hormone-free. HydraHer is formulated with clean ingredients and no harsh stimulants, making it safe for daily use by women at all stages of life, including menopause and perimenopause.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">Will it make me jittery or anxious? <span class="faq-toggle">+</span></div>
+      <div class="faq-answer">Absolutely not. HydraHer is specifically designed to deliver smooth, clean energy without the harsh stimulants that cause jitters, anxiety, or crashes. The adaptogenic formula supports balanced, sustained energy release.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">How long until I feel results? <span class="faq-toggle">+</span></div>
+      <div class="faq-answer">Many women notice improved energy and workout performance within 7–14 days of consistent daily use. Optimal endurance gains and lasting fatigue reduction typically build over 4–8 weeks as the nutrients accumulate in your system.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">How do I take it? <span class="faq-toggle">+</span></div>
+      <div class="faq-answer">Mix 1–2 scoops in water or a smoothie 20–30 minutes before exercise. Start with 1 scoop to assess tolerance. The standard dose is 1–2 scoops per day. Consistent daily use is key to building noticeable, lasting energy improvements.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">Is there a money-back guarantee? <span class="faq-toggle">+</span></div>
+      <div class="faq-answer">Yes! Every HydraHer order is backed by our 30-Day Money-Back Guarantee. If you're not completely satisfied with your experience, simply contact us within 30 days for a full refund — no questions asked.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-question">Can I mix flavors in a bundle? <span class="faq-toggle">+</span></div>
+      <div class="faq-answer">Yes! Our 3-Pouch and 6-Pouch bundles allow you to mix and match any combination of our 5 flavors. This is a great way to try multiple flavors or rotate through them for variety over your bundle period.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="nav-logo" href="#">Hydra<span>Her</span></a>
+      <p class="footer-tagline">Natural energy for women who won't slow down. Hormone-free. Jitter-free. Compromise-free.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#">Berry Blast</a></li>
+        <li><a href="#">Citrus Surge</a></li>
+        <li><a href="#">Tropical Drive</a></li>
+        <li><a href="#">Vanilla Vitality</a></li>
+        <li><a href="#">Mint Momentum</a></li>
+        <li><a href="#">Bundles</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">How It Works</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 HydraHer. All rights reserved.</span>
+    <span>Made with 💚 for women who move.</span>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Nav background on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(13,26,15,0.97)';
+    } else {
+      nav.style.background = 'rgba(13,26,15,0.85)';
+    }
+  });
+</script>
+</body>
+</html>
